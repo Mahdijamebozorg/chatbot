@@ -92,6 +92,11 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
       return;
     }
 
+    // remove last message button
+    if (_currentFollowUp != null) {
+      _messages[_messages.length - 1].buttons = [];
+    }
+
     if (!isBot) {
       final userMessage = Message(
         text: messageText,
